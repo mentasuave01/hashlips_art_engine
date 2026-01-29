@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
+        "declaration": true,
+        "declarationMap": true,
+        "noEmit": true,
+        "types": [
+            "bun-types"
+        ]
+    },
+    "include": [
+        "src/**/*",
+        "constants/**/*",
+        "modules/**/*",
+        "utils/**/*",
+        "types/**/*",
+        "index.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "build"
+    ]
+}

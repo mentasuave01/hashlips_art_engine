@@ -1,31 +1,29 @@
 {
   "name": "hashlips_art_engine",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "HashLips Art Engine is a tool used to create multiple different instances of artworks based on provided layers.",
-  "main": "index.js",
-  "bin": "index.js",
-  "pkg": {
-    "assets": [
-      "layers/**/*",
-      "node_modules/**/*",
-      "src/**/*"
-    ]
-  },
+  "type": "module",
+  "main": "index.ts",
   "scripts": {
-    "build": "node index.js",
-    "generate": "node index.js",
-    "rarity": "node utils/rarity.js",
-    "preview": "node utils/preview.js",
-    "pixelate": "node utils/pixelate.js",
-    "update_info": "node utils/update_info.js",
-    "preview_gif": "node utils/preview_gif.js",
-    "generate_metadata": "node utils/generate_metadata.js"
+    "build": "bun run index.ts",
+    "generate": "bun run index.ts",
+    "rarity": "bun run utils/rarity.ts",
+    "preview": "bun run utils/preview.ts",
+    "pixelate": "bun run utils/pixelate.ts",
+    "update_info": "bun run utils/update_info.ts",
+    "preview_gif": "bun run utils/preview_gif.ts",
+    "generate_metadata": "bun run utils/generate_metadata.ts"
   },
   "author": "Daniel Eugene Botha (HashLips)",
   "license": "MIT",
   "dependencies": {
-    "canvas": "^2.8.0",
-    "gif-encoder-2": "^1.0.5",
+    "@napi-rs/canvas": "^0.1.65",
+    "gifenc": "^1.0.3",
     "sha1": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/sha1": "^1.1.5",
+    "bun-types": "^1.1.0",
+    "typescript": "^5.4.0"
   }
 }
