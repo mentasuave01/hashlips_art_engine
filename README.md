@@ -1,26 +1,17 @@
-# Welcome to HashLips 👄
+# Welcome to Fierydev x MCLB HashLips Art Engine 👄
 
 ![](https://github.com/HashLips/hashlips_art_engine/blob/main/logo.png)
-
-All the code in these repos was created and explained by HashLips on the main YouTube channel.
-
-To find out more please visit:
-
-[📺 YouTube](https://www.youtube.com/channel/UC1LV4_VQGBJHTJjEWUmy8nA)
-
-[👄 Discord](https://discord.com/invite/qh6MWhMJDN)
-
-[💬 Telegram](https://t.me/hashlipsnft)
-
-[🐦 Twitter](https://twitter.com/hashlipsnft)
-
-[ℹ️ Website](https://hashlips.online/HashLips)
+<div align="center" style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+  <img src="mclb.gif" width="250" height="250" />
+  <p style="font-size: 100px; font-weight: bold; margin: 0 20px;">x</p>
+  <img src="fierydev.png" width="250" height="250" />
+</div>
 
 # HashLips Art Engine 🔥
 
 ![](https://github.com/HashLips/hashlips_art_engine/blob/main/banner.png)
 
-Create generative art by using the canvas api and node js. Before you use the generation engine, make sure you have node.js(v10.18.0) installed.
+Create generative art by using the canvas api and bun. Before you use the generation engine, make sure you have bun installed.
 
 ## Installation 🛠️
 
@@ -30,27 +21,21 @@ If you are cloning the project then run this first, otherwise you can download t
 git clone https://github.com/HashLips/hashlips_art_engine.git
 ```
 
-Go to the root of your folder and run this command if you have yarn installed.
+Go to the root of your folder and run this command if you have Bun installed.
 
 ```sh
-yarn install
-```
-
-Alternatively you can run this command if you have node installed.
-
-```sh
-npm install
+bun install
 ```
 
 ## Usage ℹ️
 
 Create your different layers as folders in the 'layers' directory, and add all the layer assets in these directories. You can name the assets anything as long as it has a rarity weight attached in the file name like so: `example element#70.png`. You can optionally change the delimiter `#` to anything you would like to use in the variable `rarityDelimiter` in the `src/config.js` file.
 
-Once you have all your layers, go into `src/config.js` and update the `layerConfigurations` objects `layersOrder` array to be your layer folders name in order of the back layer to the front layer.
+Once you have all your layers, go into `src/config.ts` and update the `layerConfigurations` objects `layersOrder` array to be your layer folders name in order of the back layer to the front layer.
 
 _Example:_ If you were creating a portrait design, you might have a background, then a head, a mouth, eyes, eyewear, and then headwear, so your `layersOrder` would look something like this:
 
-```js
+```ts
 const layerConfigurations = [
   {
     growEditionSizeTo: 100,
@@ -71,7 +56,7 @@ Optionally you can now add multiple different `layerConfigurations` to your coll
 
 _Example:_ If you were creating a portrait design, you might have a background, then a head, a mouth, eyes, eyewear, and then headwear and you want to create a new race or just simple re-order the layers or even introduce new layers, then you're `layerConfigurations` and `layersOrder` would look something like this:
 
-```js
+```ts
 const layerConfigurations = [
   {
     // Creates up to 50 artworks
@@ -103,9 +88,9 @@ const layerConfigurations = [
 
 Update your `format` size, ie the outputted image size, and the `growEditionSizeTo` on each `layerConfigurations` object, which is the amount of variation outputted.
 
-You can mix up the `layerConfigurations` order on how the images are saved by setting the variable `shuffleLayerConfigurations` in the `config.js` file to true. It is false by default and will save all images in numerical order.
+You can mix up the `layerConfigurations` order on how the images are saved by setting the variable `shuffleLayerConfigurations` in the `config.ts` file to true. It is false by default and will save all images in numerical order.
 
-If you want to have logs to debug and see what is happening when you generate images you can set the variable `debugLogs` in the `config.js` file to true. It is false by default, so you will only see general logs.
+If you want to have logs to debug and see what is happening when you generate images you can set the variable `debugLogs` in the `config.ts` file to true. It is false by default, so you will only see general logs.
 
 If you want to play around with different blending modes, you can add a `blend: MODE.colorBurn` field to the layersOrder `options` object.
 
@@ -117,7 +102,7 @@ To use a different metadata attribute name you can add the `displayName: "Awesom
 
 Here is an example on how you can play around with both filter fields:
 
-```js
+```ts
 const layerConfigurations = [
   {
     growEditionSizeTo: 5,
@@ -147,7 +132,7 @@ const layerConfigurations = [
 
 Here is a list of the different blending modes that you can optionally use.
 
-```js
+```ts
 const MODE = {
   sourceOver: "source-over",
   sourceIn: "source-in",
@@ -181,13 +166,13 @@ const MODE = {
 When you are ready, run the following command and your outputted art will be in the `build/images` directory and the json in the `build/json` directory:
 
 ```sh
-npm run build
+bun run build
 ```
 
 or
 
 ```sh
-node index.js
+bun run index.ts
 ```
 
 The program will output all the images in the `build/images` directory along with the metadata files in the `build/json` directory. Each collection will have a `_metadata.json` file that consists of all the metadata in the collection inside the `build/json` directory. The `build/json` folder also will contain all the single json files that represent each image file. The single json file of a image will look something like this:
@@ -213,9 +198,9 @@ The program will output all the images in the `build/images` directory along wit
 }
 ```
 
-You can also add extra metadata to each metadata file by adding your extra items, (key: value) pairs to the `extraMetadata` object variable in the `config.js` file.
+You can also add extra metadata to each metadata file by adding your extra items, (key: value) pairs to the `extraMetadata` object variable in the `config.ts` file.
 
-```js
+```ts
 const extraMetadata = {
   creator: "Daniel Eugene Botha",
 };
@@ -223,7 +208,7 @@ const extraMetadata = {
 
 If you don't need extra metadata, simply leave the object empty. It is empty by default.
 
-```js
+```ts
 const extraMetadata = {};
 ```
 
@@ -236,7 +221,7 @@ That's it, you're done.
 You might possibly want to update the baseUri and description after you have ran your collection. To update the baseUri and description simply run:
 
 ```sh
-npm run update_info
+bun run update_info
 ```
 
 ### Generate a preview image
@@ -244,7 +229,7 @@ npm run update_info
 Create a preview image collage of your collection, run:
 
 ```sh
-npm run preview
+bun run preview
 ```
 
 ### Generate pixelated images from collection
@@ -254,11 +239,11 @@ In order to convert images into pixelated images you would need a list of images
 Then simply run this command:
 
 ```sh
-npm run pixelate
+bun run pixelate
 ```
 
 All your images will be outputted in the `/build/pixel_images` directory.
-If you want to change the ratio of the pixelation then you can update the ratio property on the `pixelFormat` object in the `src/config.js` file. The lower the number on the left, the more pixelated the image will be.
+If you want to change the ratio of the pixelation then you can update the ratio property on the `pixelFormat` object in the `src/config.ts` file. The lower the number on the left, the more pixelated the image will be.
 
 ```js
 const pixelFormat = {
@@ -268,7 +253,7 @@ const pixelFormat = {
 
 ### Generate GIF images from collection
 
-In order to export gifs based on the layers created, you just need to set the export on the `gif` object in the `src/config.js` file to `true`. You can also play around with the `repeat`, `quality` and the `delay` of the exported gif.
+In order to export gifs based on the layers created, you just need to set the export on the `gif` object in the `src/config.ts` file to `true`. You can also play around with the `repeat`, `quality` and the `delay` of the exported gif.
 
 Setting the `repeat: -1` will produce a one time render and `repeat: 0` will loop forever.
 
@@ -286,7 +271,7 @@ const gif = {
 To see the percentages of each attribute across your collection, run:
 
 ```sh
-npm run rarity
+bun run rarity
 ```
 
 The output will look something like this:
@@ -309,5 +294,15 @@ Trait type: Top lid
   occurrence: '14 in 20 editions (70.00 %)'
 }
 ```
+
+### Checking for duplicate attributes
+
+To ensure that no two NFTs have the exact same attributes, you can run the following command after generation:
+
+```sh
+bun run check_metadata
+```
+
+This script will scan your `build/json` directory and report any duplicate attribute combinations found.
 
 Hope you create some awesome artworks with this code 👄

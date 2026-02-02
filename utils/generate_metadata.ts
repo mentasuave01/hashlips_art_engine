@@ -6,6 +6,7 @@ import {
     namePrefix,
     description,
     baseUri,
+    imageFormat,
 } from "../src/config.js";
 
 const basePath = process.cwd();
@@ -166,7 +167,7 @@ const saveMetadata = (loadedImageObject: LoadedImageObject): void => {
     const tempMetadata: Metadata = {
         name: `${namePrefix} #${shortName}`,
         description: description,
-        image: `${baseUri}/${shortName}.webp`,
+        image: `${baseUri}/${shortName}.${imageFormat}`,
         edition: Number(shortName),
         attributes: tempAttributes,
         compiler: "HashLips Art Engine",

@@ -6,6 +6,7 @@ import {
     namePrefix,
     network,
     solanaMetadata,
+    imageFormat,
 } from "../src/config.js";
 
 const basePath = process.cwd();
@@ -31,7 +32,7 @@ data.forEach((item) => {
     } else {
         item.name = `${namePrefix} #${item.edition}`;
         item.description = description;
-        item.image = `${baseUri}/${item.edition}.webp`;
+        item.image = `${baseUri}/${item.edition}.${imageFormat}`;
     }
     writeFileSync(
         `${basePath}/build/json/${item.edition}.json`,

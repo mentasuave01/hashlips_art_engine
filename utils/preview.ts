@@ -1,6 +1,6 @@
 import { createCanvas, loadImage } from "@napi-rs/canvas";
 import { readFileSync, writeFileSync } from "fs";
-import { preview } from "../src/config.js";
+import { preview, imageFormat } from "../src/config.js";
 
 const basePath = process.cwd();
 const buildDir = `${basePath}/build`;
@@ -36,7 +36,7 @@ const saveProjectPreviewImage = async (data: MetadataItem[]): Promise<void> => {
     // Iterate all NFTs and insert thumbnail into preview image
     for (let index = 0; index < data.length; index++) {
         const nft = data[index];
-        const image = await loadImage(`${buildDir}/images/${nft.edition}.webp`);
+        const image = await loadImage(`${buildDir}/images/${nft.edition}.${imageFormat}`);
         previewCtx.drawImage(
             image,
             thumbWidth * (index % thumbPerRow),

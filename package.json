@@ -12,7 +12,8 @@
     "pixelate": "bun run utils/pixelate.ts",
     "update_info": "bun run utils/update_info.ts",
     "preview_gif": "bun run utils/preview_gif.ts",
-    "generate_metadata": "bun run utils/generate_metadata.ts"
+    "generate_metadata": "bun run utils/generate_metadata.ts",
+    "check_metadata": "bun run utils/metadataChecker.ts"
   },
   "author": "Daniel Eugene Botha (HashLips)",
   "license": "MIT",

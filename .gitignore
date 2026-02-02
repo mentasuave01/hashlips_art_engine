@@ -144,3 +144,6 @@ dist
 # assets
 build
 layers/*
+
+# local files
+.local

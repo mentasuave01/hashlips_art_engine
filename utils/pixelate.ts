@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } from "fs";
 import { extname } from "path";
 import { createCanvas, loadImage, type Image } from "@napi-rs/canvas";
-import { format, pixelFormat } from "../src/config.js";
+import { format, pixelFormat, imageFormat } from "../src/config.js";
 
 const basePath = process.cwd();
 const buildDir = `${basePath}/build/pixel_images`;
@@ -61,9 +61,12 @@ const draw = (imgObject: LoadedImageObject): void => {
 };
 
 const saveImage = (loadedImageObject: LoadedImageObject): void => {
+    const mimeType = imageFormat === "png" ? "image/png" : "image/webp";
+    // Keep original extension in filename
+    const newFilename = loadedImageObject.imgObject.filename.replace(/\.[^/.]+$/, `.${imageFormat}`);
     writeFileSync(
-        `${buildDir}/${loadedImageObject.imgObject.filename}`,
-        canvas.toBuffer("image/webp")
+        `${buildDir}/${newFilename}`,
+        canvas.toBuffer(mimeType as "image/png")
     );
 };
 

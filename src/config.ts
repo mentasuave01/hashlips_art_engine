@@ -1,88 +1,19 @@
-import { MODE, type BlendMode } from "../constants/blend_mode.js";
-import { NETWORK, type Network } from "../constants/network.js";
-
-// Type definitions
-export interface Format {
-    width: number;
-    height: number;
-    smoothing: boolean;
-}
-
-export interface GifConfig {
-    export: boolean;
-    repeat: number;
-    quality: number;
-    delay: number;
-}
-
-export interface TextConfig {
-    only: boolean;
-    color: string;
-    size: number;
-    xGap: number;
-    yGap: number;
-    align: CanvasTextAlign;
-    baseline: CanvasTextBaseline;
-    weight: string;
-    family: string;
-    spacer: string;
-}
-
-export interface PixelFormat {
-    ratio: number;
-}
-
-export interface BackgroundConfig {
-    generate: boolean;
-    brightness: string;
-    static: boolean;
-    default: string;
-}
-
-export interface PreviewConfig {
-    thumbPerRow: number;
-    thumbWidth: number;
-    imageRatio: number;
-    imageName: string;
-}
-
-export interface PreviewGifConfig {
-    numberOfImages: number;
-    order: "ASC" | "DESC" | "MIXED";
-    repeat: number;
-    quality: number;
-    delay: number;
-    imageName: string;
-}
-
-export interface LayerOptions {
-    displayName?: string;
-    blend?: BlendMode;
-    opacity?: number;
-    bypassDNA?: boolean;
-}
-
-export interface LayerConfig {
-    name: string;
-    options?: LayerOptions;
-}
-
-export interface LayerConfiguration {
-    growEditionSizeTo: number;
-    layersOrder: LayerConfig[];
-}
-
-export interface SolanaCreator {
-    address: string;
-    share: number;
-}
-
-export interface SolanaMetadata {
-    symbol: string;
-    seller_fee_basis_points: number;
-    external_url: string;
-    creators: SolanaCreator[];
-}
+import { NETWORK } from "../constants/network.js";
+import { MODE } from "../constants/blend_mode.js";
+import type {
+    ImageFormat,
+    Format,
+    GifConfig,
+    TextConfig,
+    PixelFormat,
+    BackgroundConfig,
+    PreviewConfig,
+    PreviewGifConfig,
+    LayerConfiguration,
+    SolanaMetadata,
+    Network,
+    BlendMode
+} from "./types.js";
 
 // Configuration
 export const network: Network = NETWORK.eth;
@@ -106,7 +37,7 @@ export const solanaMetadata: SolanaMetadata = {
 
 export const layerConfigurations: LayerConfiguration[] = [
     {
-        growEditionSizeTo: 1000,
+        growEditionSizeTo: 100,
         layersOrder: [
             { name: "Background" },
             { name: "Body" },
@@ -126,6 +57,9 @@ export const format: Format = {
     height: 1024,
     smoothing: false,
 };
+
+// Image output format: "png" or "webp"
+export const imageFormat: ImageFormat = "webp";
 
 export const gif: GifConfig = {
     export: false,
@@ -162,7 +96,7 @@ export const extraMetadata: Record<string, unknown> = {};
 
 export const rarityDelimiter = "#";
 
-export const uniqueDnaTorrance = 10000;
+export const uniqueDnaTorrance = 100;
 
 export const preview: PreviewConfig = {
     thumbPerRow: 5,
@@ -180,6 +114,5 @@ export const preview_gif: PreviewGifConfig = {
     imageName: "preview.gif",
 };
 
-// Re-export for convenience
+// Re-export constants for convenience
 export { MODE, NETWORK };
-export type { BlendMode, Network };
