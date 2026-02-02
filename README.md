@@ -1,10 +1,23 @@
 # Welcome to Fierydev x MCLB HashLips Art Engine 👄
 
-![](https://github.com/HashLips/hashlips_art_engine/blob/main/logo.png)
-<div align="center" style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-  <img src="mclb.gif" width="250" height="250" />
-  <p style="font-size: 100px; font-weight: bold; margin: 0 20px;">x</p>
-  <img src="fierydev.png" width="250" height="250" />
+<div align="center">
+  <table>
+    <tr>
+      <td style="border: none;">
+        <a href="https://mclb.org">
+        <img src="mclb.gif" width="250" height="250" alt="mclb" />
+        </a>
+        </td>
+      <td style="border: none;" valign="middle">
+        <h1>X</h1>
+      </td>
+      <td style="border: none;">
+                <a href="https://x.com/dev_enjoys">
+        <img src="fierydev.png" width="250" height="250" alt="fierydev" />
+                </a>
+      </td>
+    </tr>
+  </table>
 </div>
 
 # HashLips Art Engine 🔥
